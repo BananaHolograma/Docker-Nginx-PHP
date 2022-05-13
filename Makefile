@@ -15,8 +15,8 @@ all:build
 build:install env docker/build-nc up 
 
 install:
-	@chmod -R u+x "${DOCKER_PATH}/scripts"
-	$(SHELL) -c "${DOCKER_PATH}/scripts/install-dependencies.sh"
+	@chmod -R u+x "${CURRENT_DIR}/scripts"
+	$(SHELL) -c "${CURRENT_DIR}/scripts/install-dependencies.sh"
 	@mkdir -p "${CURRENT_DIR}src"
 	@make certs
 	@make git-hooks
@@ -36,7 +36,7 @@ certs:
 	mkdir -p ${NGINX_CERTS_PATH}
 	mv ssl.crt ${NGINX_CERTS_PATH}
 	mv ssl.key ${NGINX_CERTS_PATH}
-	$(SHELL) -c "${DOCKER_PATH}/scripts/manage-etc-hosts.sh add $(APP_DOMAIN)"
+	$(SHELL) -c "${CURRENT_DIR}scripts/manage-etc-hosts.sh add $(APP_DOMAIN)"
 
 up: docker/up
 	@make ps
@@ -45,7 +45,7 @@ down: docker/down
 ps: docker/ps
 restart:docker/down docker/up
 destroy:docker/destroy
-	$(SHELL) -c "${DOCKER_PATH}/scripts/manage-etc-hosts.sh remove $(APP_DOMAIN)"
+	$(SHELL) -c "${CURRENT_DIR}scripts/manage-etc-hosts.sh remove $(APP_DOMAIN)"
 
 # DOCKER GENERIC COMMANDS
 docker/ps: CMD=ps
