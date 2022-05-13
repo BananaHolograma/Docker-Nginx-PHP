@@ -3,6 +3,6 @@
 -- https://chartio.com/resources/tutorials/how-to-grant-all-privileges-on-a-database-in-mysql/
 
 CREATE DATABASE IF NOT EXISTS app_db_test; 
-GRANT ALL PRIVILEGES ON app_db_test.* TO 'laravel'@'%';
+GRANT ALL PRIVILEGES ON app_db_test.* TO 'admin'@'%';
 
 FLUSH PRIVILEGES;
