@@ -19,7 +19,6 @@ install:
 	$(SHELL) -c "${CURRENT_DIR}/scripts/install-dependencies.sh"
 	@mkdir -p "${CURRENT_DIR}src"
 	@make certs
-	@make git-hooks
 
 env:
 	@if [ ! -f ${CURRENT_DIR}.env ]; then cp ${CURRENT_DIR}.env.example ${CURRENT_DIR}.env; fi
