@@ -54,7 +54,7 @@ For example you can install a fresh laravel project inside:
 ```bash
 make shell/php 
 # Now inside the php container run:
-composer create-project laravel/laravel .
+rm .gitkeep && composer create-project laravel/laravel .
 ```
 
 # Makefile
