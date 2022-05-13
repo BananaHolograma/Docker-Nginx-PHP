@@ -7,14 +7,12 @@
     - [Windows](#windows)
       - [WSL 2](#wsl-2)
     - [Unix based systems](#unix-based-systems)
+    - [Your PHP project](#your-php-project)
 - [Makefile](#makefile)
   - [Makefile variables](#makefile-variables)
   - [Environment root file _(.env)_](#environment-root-file-env)
   - [Build and get running the local dev environment](#build-and-get-running-the-local-dev-environment)
     - [Working with containers](#working-with-containers)
-    - [After build the containers](#after-build-the-containers)
-      - [GIT HOOKS](#git-hooks)
-        - [Bypass hooks](#bypass-hooks)
 
 # Prerequisites
 
