@@ -43,8 +43,19 @@ services:
     user: ${APP_USER}
     volumes:
       - <<: *services-volume
-      - ./docker/php/config/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./images/php/config/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     command: ["php-fpm", "-y", "/usr/local/etc/php-fpm.conf", "-R"]
+    networks:
+      - app-network
+
+  scheduler:
+    image: php-nginx-app
+    container_name: "${CONTAINER_PREFIX}-scheduler-php"
+    depends_on:
+      - php
+    volumes:
+      - <<: *services-volume
+    command: ["/usr/local/bin/start"]
     networks:
       - app-network
 
